@@ -7,3 +7,4 @@ This part of the PCF 201 Workshop focuses on the topic of scaling. In this part 
 - Add a scaling rule based on a custom metric
 - Add a scaling rule based on the comparison of two custom metrics
 - Configure scheduled limits
+

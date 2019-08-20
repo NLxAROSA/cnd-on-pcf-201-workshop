@@ -65,12 +65,12 @@ Open in the browser: [http://localhost:8080/](http://localhost:8080/)
 
 ## Exercises
 
-* Exercise 1: [start](exercise-1-start.md), [solution](exercise-1-solution.md)
-* Exercise 2: [start](exercise-2-start.md), [solution](exercise-2-solution.md)
-* Exercise 3: [start](exercise-3-start.md), [solution](exercise-3-solution.md)
-* Exercise 4: [start](exercise-4-start.md), [solution](exercise-4-solution.md)
-* Exercise 5: [start](exercise-5-start.md), [solution](exercise-5-solution.md)
-* Exercise 6: [start](exercise-6-start.md), [solution](exercise-6-solution.md)
+* Exercise 1: [start](01-scaling/exercise-1-start.md), [solution](01-scaling/exercise-1-solution.md)
+* Exercise 2: [start](02-security/exercise-2-start.md), [solution](02-security/exercise-2-solution.md)
+* Exercise 3: [start](03-robustness-resilience/exercise-3-start.md), [solution](03-robustness-resilience/exercise-3-solution.md)
+* Exercise 4: [start](04-caching/exercise-4-start.md), [solution](04-caching/exercise-4-solution.md)
+* Exercise 5: [start](05-metrics-logging/exercise-5-start.md), [solution](05-metrics-logging/exercise-5-solution.md)
+* Exercise 6: [start](06-messaging/exercise-6-start.md), [solution](06-messaging/exercise-6-solution.md)
 
 
 ## Tips
