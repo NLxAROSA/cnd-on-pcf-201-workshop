@@ -14,7 +14,7 @@ We expect you to bring:
 
 We expect you have installed:
 
-* [JDK8 or higher](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [JDK11 or higher](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Cloud Foundry CLI](https://docs.run.pivotal.io/cf-cli/install-go-cli.html)
 
 We expect you to have completed the [Cloud Native Development on PCF 101 workshop](https://github.com/NLxAROSA/cnd-on-pcf-101-workshop) and are familiar with the basics of PCF, Java and Spring Boot.
