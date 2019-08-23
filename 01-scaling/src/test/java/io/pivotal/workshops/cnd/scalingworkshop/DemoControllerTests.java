@@ -1,6 +1,7 @@
 package io.pivotal.workshops.cnd.scalingworkshop;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -12,19 +13,20 @@ import org.springframework.test.context.junit4.SpringRunner;
  * DemoControllerTests
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = RedisTestConfiguration.class)
 public class DemoControllerTests {
 
     private DemoController demoController;
 
     @Before
     public void setup() {
-        this.demoController = new DemoController();
+        RequestCounter counter = mock(RequestCounter.class);
+        this.demoController = new DemoController(counter);
     }
 
     @Test
     public void returnsTheString()  {
-        String expected = "This is a sample test message";
+        String expected = "Number of received requests: 0";
         assertEquals(expected, demoController.getMessage().block());
     }
     

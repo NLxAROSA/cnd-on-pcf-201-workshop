@@ -1,0 +1,9 @@
+---
+applications:
+  - name: 01-scaling
+    random-route: true
+    path: target/01-scaling-0.0.1-SNAPSHOT.jar
+    env:
+      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
+    services:
+      - scaling-redis

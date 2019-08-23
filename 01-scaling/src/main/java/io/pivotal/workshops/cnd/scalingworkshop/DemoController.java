@@ -11,9 +11,16 @@ import reactor.core.publisher.Mono;
 @RestController
 public class DemoController {
 
+    private final RequestCounter counter;
+
+    public DemoController(RequestCounter requestCounter)    {
+        this.counter = requestCounter;
+    }
+
     @GetMapping
     public Mono<String> getMessage()    {
-        String message = "This is a sample test message";
+        counter.incrementCounter();
+        String message = "Number of received requests: " + counter.getCounter();
         return Mono.just(message);
     }
     
