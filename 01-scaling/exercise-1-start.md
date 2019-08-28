@@ -115,6 +115,16 @@ public class RequestCounterGaugeMicrometer {
 
 To summarize: we added Redis connectivity in the application, added a metric in Redis and exposed this in a MeterRegistry. Under the hood, Spring Boot and Micrometer expose this metric into a Prometheus endpoint.
 
-Of course we also want to be able to test this locally, so let's add an embedded Redis just for testing purposes.
+Of course we also want to be able to test this locally, so let's add an embedded Redis just for testing purposes. In your pom.xml file, add the following dependency:
+
+```xml
+<dependency>
+    <groupId>it.ozimov</groupId>
+    <artifactId>embedded-redis</artifactId>
+    <version>0.7.2</version>
+    <scope>test</scope>
+</dependency>
+```
+
 
 workshop_request_counter metric
