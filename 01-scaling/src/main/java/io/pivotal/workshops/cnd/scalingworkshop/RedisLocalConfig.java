@@ -39,5 +39,4 @@ public class RedisLocalConfig   {
         this.redisServer.stop();
     }
 
-    
 }

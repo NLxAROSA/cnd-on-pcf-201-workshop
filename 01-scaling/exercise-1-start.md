@@ -122,8 +122,71 @@ Of course we also want to be able to test this locally, so let's add an embedded
     <groupId>it.ozimov</groupId>
     <artifactId>embedded-redis</artifactId>
     <version>0.7.2</version>
-    <scope>test</scope>
 </dependency>
+```
+
+And then modify the configuration for the Spring Boot Maven Plugin until it looks like this:
+
+```xml
+<plugin>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
+    <configuration>
+        <profiles>
+            <profile>default</profile>
+            <profile>local</profile>
+        </profiles>
+    </configuration>
+</plugin>
+```
+
+Now, in your source code, add a `LocalRedisConfig` class like the example below:
+
+```java
+@Configuration()
+@Profile("local")
+public class RedisLocalConfig   {
+
+    private final RedisServer redisServer;
+
+    public RedisLocalConfig() {
+        RedisServer redisServer = new RedisServer(6379);
+        redisServer.start();
+        this.redisServer = redisServer;
+    }
+
+    @Bean
+    public LettuceConnectionFactory redisConnectionFactory() {
+        return new LettuceConnectionFactory("localhost", 6379);
+    }
+
+    @Bean
+    public RedisTemplate<?, ?> redisTemplate(LettuceConnectionFactory connectionFactory) {
+        RedisTemplate<byte[], byte[]> template = new RedisTemplate<>();
+        template.setConnectionFactory(connectionFactory);
+        return template;
+    }
+
+    @PreDestroy
+    public void stopRedis() {
+        this.redisServer.stop();
+    }
+   
+}
+```
+
+Now, run the application locally by executing the following command on the command line:
+
+```bash
+./mvnw package spring-boot:run
+```
+
+Then navigate your browser to [http://localhost:8080](http://localhost:8080) and your application should be up and running!
+
+If all is well, push the application into PCF using 
+
+```bash
+cf push
 ```
 
 
